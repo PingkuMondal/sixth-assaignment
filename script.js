@@ -3,8 +3,10 @@ const loadCategoriesItem=document.getElementById("loadCategoriesItem");
 const allCategory=document.getElementById("allCategory");
 const addCard=document.getElementsByClassName("addCart");
 const cardBox=document.getElementById("card-id");
+ const totalPriceId=document.getElementById("totalPriceId");
 
 const yourCart=[];
+
 
 const allCategoriesPart=async()=>{
     try {
@@ -124,12 +126,14 @@ const loadHandleCard=(e)=>{
   alert("successfully clicked ")
   const parentDiv = e.target.parentNode; 
   const titleCopy = parentDiv.querySelector("h1").innerText;
-  const priceCopy = parentDiv.querySelector("span").innerText;
+  const priceCopy = parseFloat(parentDiv.querySelector("span").innerText)
+ 
 
    yourCart.push({
     titleCopy:titleCopy,
     priceCopy:priceCopy,
    })
+  //  totalPrice.push({ priceCopy:priceCopy})
    showLoadHandleCard();
 
 }
@@ -146,12 +150,16 @@ const showLoadHandleCard=()=>{
                             <button onclick="deleteCartItem(${index})"><i class="fa-solid fa-xmark"></i></button>
                         </div>`
    })
+    const total = yourCart.reduce((sum, item) => sum + item.priceCopy, 0);
+  totalPriceId.innerHTML = `<h2 class="text-lg font-bold text-green-700">Total: $${total}</h2>`;
     
 }
+
 const deleteCartItem = (index) => {
   yourCart.splice(index, 1);
   showLoadHandleCard();    
 }
+
 
 
 
