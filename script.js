@@ -5,6 +5,7 @@ const addCard=document.getElementsByClassName("addCart");
 const cardBox=document.getElementById("card-id");
  const totalPriceId=document.getElementById("totalPriceId");
  const itemName=document.getElementsByClassName("itemName");
+ const loadCategoriesCart=document.getElementById("loadCategoriesCart");
 
 const yourCart=[];
 
@@ -57,6 +58,12 @@ allCategoriesId.addEventListener("click",(e)=>{
 
 const loadCategoriesId=async(id)=>{
    try {
+       loadCategoriesCart.innerHTML = `
+      <div class="flex justify-center items-center col-span-3">
+        <span class="loading loading-dots loading-xl"></span>
+         <span class="loading loading-dots loading-xl"></span>
+      </div>
+    `;
      const res=await fetch(`https://openapi.programming-hero.com/api/category/${id}`)
     const data=await res.json();
    showLoadCategoriesItem(data.plants || [])
@@ -70,14 +77,14 @@ const loadCategoriesId=async(id)=>{
 }
 
 const showLoadCategoriesItem=(itemsCat)=>{
-  loadCategoriesItem.innerHTML="";
+  loadCategoriesCart.innerHTML="";
   itemsCat.forEach((items)=>{
     if (!itemsCat.length) {
-    loadCategoriesItem.innerHTML = `<p class="text-red-600 font-bold">No plants found!</p>`;
+    loadCategoriesCart.innerHTML = `<p class="text-red-600 font-bold">No plants found!</p>`;
     return;
   }
       
-  loadCategoriesItem.innerHTML+=`
+  loadCategoriesCart.innerHTML+=`
       <div class="bg-white rounded-md p-4 space-y-2 w-full">
                         <img class="rounded-lg h-60 w-full mx-auto" src="${items.image}" alt="">
                         <h1 class="itemName font-bold text-md text-left">${items.name}</h1>
