@@ -4,6 +4,7 @@ const allCategory=document.getElementById("allCategory");
 const addCard=document.getElementsByClassName("addCart");
 const cardBox=document.getElementById("card-id");
  const totalPriceId=document.getElementById("totalPriceId");
+ const itemName=document.getElementsByClassName("itemName");
 
 const yourCart=[];
 
@@ -41,8 +42,13 @@ allCategoriesId.addEventListener("click",(e)=>{
 
     if(e.target.localName==="li"){
         e.target.classList.add("bg-green-600", "text-white","rounded-md")
+
+          if (e.target.id === "allCategory") {
+      allCategoryButton();
+    } else {
+      loadCategoriesId(e.target.id);
+    }
         // console.log(e.target)
-        loadCategoriesId(e.target.id);
         
     }
 
@@ -53,7 +59,7 @@ const loadCategoriesId=async(id)=>{
    try {
      const res=await fetch(`https://openapi.programming-hero.com/api/category/${id}`)
     const data=await res.json();
-   showLoadCategoriesItem(data.plants)
+   showLoadCategoriesItem(data.plants || [])
     // console.log(data.plants)
 
    } catch (error) {
@@ -66,12 +72,15 @@ const loadCategoriesId=async(id)=>{
 const showLoadCategoriesItem=(itemsCat)=>{
   loadCategoriesItem.innerHTML="";
   itemsCat.forEach((items)=>{
-   
+    if (!itemsCat.length) {
+    loadCategoriesItem.innerHTML = `<p class="text-red-600 font-bold">No plants found!</p>`;
+    return;
+  }
       
   loadCategoriesItem.innerHTML+=`
       <div class="bg-white rounded-md p-4 space-y-2 w-full">
                         <img class="rounded-lg h-60 w-full mx-auto" src="${items.image}" alt="">
-                        <h1 class="font-bold text-md text-left">${items.name}</h1>
+                        <h1 class="itemName font-bold text-md text-left">${items.name}</h1>
                         <p class="text-left text-sm">${items.description}</p>
                         <div class="flex justify-between">
                             <button class="bg-[#DCFCE7] rounded-3xl px-2 py-1 text-green-700 font-semibold">${items.category}</button>
@@ -94,7 +103,13 @@ const allCategoryButton=async()=>{
      const res=await fetch(`https://openapi.programming-hero.com/api/plants`)
     const data=await res.json();
     // console.log(data.plants)
-    showLoadCategoriesItem(data.plants)
+    if (data.plants) {
+      showLoadCategoriesItem(data.plants);
+    } else if (data.data && data.data.plants) {
+      showLoadCategoriesItem(data.data.plants);
+    } else {
+      showLoadCategoriesItem([]);
+    }
 
    } catch (error) {
     console.log(error);
@@ -159,7 +174,6 @@ const deleteCartItem = (index) => {
   yourCart.splice(index, 1);
   showLoadHandleCard();    
 }
-
 
 
 
