@@ -29,7 +29,7 @@
                         <li><a>Plant a Tree</a></li>
                     </ul>
                 </div>
-                <h1 class="font-bold text-lg">Green Earth</h1>
+                <h1 id="logo-id" class="font-bold text-lg cursor-pointer">Green Earth</h1>
             </div>
             <ul class="md:flex justify-between gap-5 hidden">
                 <li><a href="">About</a></li>
@@ -42,7 +42,7 @@
     </nav>
 
     <!-- banner section -->
-    <header class=" bg-[#CFF0DC] grid grid-cols-4 justify-between items-center gap-5 mt-20">
+    <header id="banner-id" class=" bg-[#CFF0DC] grid grid-cols-4 justify-between items-center gap-5 pt-10 mt-20">
         <img class="col-span-1" src="./assets/hero-leaf1.png" alt="">
         <div class="col-span-2 text-center space-y-2 text-[#1F2937] my-2">
             <h1 class="font-bold text-xl md:text-3xl">Plant a Tree, Grow a Future</h1>
@@ -61,13 +61,15 @@
            
             <div class="grid md:grid-cols-6 justify-between gap-5 mt-5">
                 <div id="allCategories-id" class="list-none md:col-span-1 text-left" >
-                    <div><h1 class="font-bold p-2">Categories</h1></div>
-                    <ul ><li id="allCategory" class="font-bold p-2 hover:cursor-pointer">All Categories</li></ul>
-                    <!-- all Categories -->
-                    <div></div>
+                    <div class="  w-full  flex justify-between md:grid"><h1 class="font-bold text-lg p-2">Categories</h1>
+                      <div class="flex justify-between">
+                        <ul ><li id="allCategory" class="font-bold p-2 hover:cursor-pointer  hover:bg-green-600 rounded-md  hover:text-white">All Categories</li></ul>
+                </div>
+                    </div>
+                  
                 </div>
 
-                <div  class=" col-span-4">
+                <div  class=" md:col-span-4">
                     <div id="loadCategoriesItem"  >
                       
                         <div id="loadCategoriesCart" class=" grid md:grid-cols-3 gap-2  min-h-[300px]"></div>
@@ -79,7 +81,7 @@
                     
 
                 </div>
-                <div class=" col-span-1 bg-white rounded-lg">
+                <div class=" md:col-span-1 bg-white rounded-lg">
                     <h1 class="font-bold text-left p-2">Your Cart</h1>
                     <div id="card-id">
                     </div>

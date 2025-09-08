@@ -139,3 +139,14 @@ const name = "Pingku";
 const age = 30;
 const text = `my name ${name} and my age ${age}.`;
 console.log(text);
+
+
+
+
+
+
+
+
+
+
+

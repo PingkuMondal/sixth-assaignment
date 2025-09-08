@@ -9,12 +9,19 @@ const cardBox=document.getElementById("card-id");
  const bodyScreen=document.getElementById("bodyScreen");
  const modalContainer=document.getElementById("modalContainer");
  const modalCard=document.getElementById("modal_card");
+ const logoId= document.getElementById("logo-id")
 
 const yourCart=[];
 
 
 const allCategoriesPart=async()=>{
     try {
+         loadCategoriesCart.innerHTML = `
+      <div class="flex justify-center items-center col-span-3">
+        <span class="loading loading-dots loading-xl"></span>
+         <span class="loading loading-dots loading-xl"></span>
+      </div>
+    `;
         const res= await fetch(`https://openapi.programming-hero.com/api/categories`);
         const data=await res.json();
        showAllCategoriesName(data.categories);
@@ -27,7 +34,17 @@ const showAllCategoriesName=(names)=>{
    names.forEach(name => {
    
     allCategoriesId.innerHTML+=`  
-                          <div class=" hover:bg-green-600 rounded-md  hover:text-white cursor-pointer mt-2 font-semibold  gap-2 ">
+    <div class="dropdown md:hidden">
+                    <div tabindex="0" class="m-1 text-center"><a class="text-sm hover:text-green-700" href="">${name.category_name}</a></div>
+                    <ul tabindex="0"
+                        class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-green-700 font-semibold">
+                       <div class=" hover:bg-green-600 rounded-md  hover:text-white cursor-pointer mt-2 font-semibold  gap-2 ">
+                          
+                          <li id=${name.id}  class="py-1 px-10 pl-2 ">${name.category_name}</li>
+                          </div>
+                    </ul>
+                </div>
+                          <div class="hidden md:block hover:bg-green-600 rounded-md  hover:text-white cursor-pointer mt-2 font-semibold  gap-2 ">
                           
                           <li id=${name.id}  class="py-1 px-10 pl-2 ">${name.category_name}</li>
                           </div>
@@ -92,7 +109,7 @@ const showLoadCategoriesItem=(itemsCat)=>{
   loadCategoriesCart.innerHTML+=`
       <div node-id="${items.id}"  class="bg-white rounded-md p-4 space-y-2  object-cover w-full mx-auto shadow-lg grid justify-center items-center">
                         <img class="rounded-lg h-60 w-full mx-auto object-cover" src="${items.image}" alt="">
-                        <h1 data-id="${items.id}" class="itemName font-bold text-md text-left">${items.name}</h1>
+                        <h1 data-id="${items.id}" class="itemName font-bold text-md text-left cursor-pointer text-green-700">${items.name}</h1>
                         <p class="text-left text-sm">${items.description}</p>
                         <div class="flex justify-between">
                             <button class="bg-[#DCFCE7] rounded-3xl px-2 py-1 text-green-700 font-semibold">${items.category}</button>
@@ -176,7 +193,7 @@ modalContainer.innerHTML=`
         <img class="w-90 h-70 mx-auto object-cover" src="${plants.image}" alt="">
         <h3 class="text-lg font-bold">${plants.name}</h3>
         <p class="py-4 text-gray-800">${plants.description || "No description available"}</p>
-        <p class="text-green-700"><span class=" text-gray-800 font-semibold">category:</span> ${plants.category}</p>
+        <p class="text-green-700"><span class=" text-gray-800 font-semibold">Category:</span> ${plants.category}</p>
          <p class="text-green-700"><span class="text-gray-800 font-semibold">Price:</span>$ ${plants.price} </p>
 
 `
@@ -220,6 +237,14 @@ const deleteCartItem = (index) => {
   yourCart.splice(index, 1);
   showLoadHandleCard();    
 }
+
+logoId.addEventListener('click',function(e){
+  e.preventDefault();
+  const banner=document.getElementById('banner-id');
+   banner.scrollIntoView({
+      behavior: 'smooth', 
+      block: 'start'})
+})
 
 
 allCategoriesPart();
