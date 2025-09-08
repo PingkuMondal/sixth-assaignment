@@ -27,11 +27,13 @@ const showAllCategoriesName=(names)=>{
    names.forEach(name => {
    
     allCategoriesId.innerHTML+=`  
-                          <div class=" list-none flex justify-between flex-wrap hover:bg-green-600 rounded-md  hover:text-white cursor-pointer mt-2 ml-2 font-semibold  gap-5 ">
-                          <li id=${name.id}  class="py-1 px-10 my-2 pl-2 ">${name.category_name}</li>
+                          <div class=" hover:bg-green-600 rounded-md  hover:text-white cursor-pointer mt-2 font-semibold  gap-2 ">
+                          
+                          <li id=${name.id}  class="py-1 px-10 pl-2 ">${name.category_name}</li>
                           </div>
 
     `
+   
    });
 }
 
@@ -45,7 +47,7 @@ allCategoriesId.addEventListener("click",(e)=>{
     })
 
     if(e.target.localName==="li"){
-        e.target.classList.add("bg-green-600", "text-white","rounded-md")
+        e.target.classList.add("bg-green-600", "text-white","w-full","rounded-md")
 
           if (e.target.id === "allCategory") {
       allCategoryButton();
@@ -88,8 +90,8 @@ const showLoadCategoriesItem=(itemsCat)=>{
   }
       
   loadCategoriesCart.innerHTML+=`
-      <div node-id="${items.id}"  class="bg-white rounded-md p-4 space-y-2 w-full">
-                        <img class="rounded-lg h-60 w-full mx-auto" src="${items.image}" alt="">
+      <div node-id="${items.id}"  class="bg-white rounded-md p-4 space-y-2  object-cover w-full mx-auto shadow-lg grid justify-center items-center">
+                        <img class="rounded-lg h-60 w-full mx-auto object-cover" src="${items.image}" alt="">
                         <h1 data-id="${items.id}" class="itemName font-bold text-md text-left">${items.name}</h1>
                         <p class="text-left text-sm">${items.description}</p>
                         <div class="flex justify-between">
@@ -171,13 +173,17 @@ const showDetailModal=(plants)=>{
   // console.log(plants)
     modalCard.showModal();
 modalContainer.innerHTML=`
-<h3 class="text-lg font-bold">${plants.name}</h3>
-    <p class="py-4">${plants.description || "No description available"}</p>
+        <img class="w-90 h-70 mx-auto object-cover" src="${plants.image}" alt="">
+        <h3 class="text-lg font-bold">${plants.name}</h3>
+        <p class="py-4 text-gray-800">${plants.description || "No description available"}</p>
+        <p class="text-green-700"><span class=" text-gray-800 font-semibold">category:</span> ${plants.category}</p>
+         <p class="text-green-700"><span class="text-gray-800 font-semibold">Price:</span>$ ${plants.price} </p>
+
 `
 }
 
 const loadHandleCard=(e)=>{
-  alert("successfully clicked ")
+  alert("successfully Add to Cart")
   const parentDiv = e.target.closest("div.bg-white"); 
   const titleCopy = parentDiv.querySelector("h1").innerText;
   const priceCopy = parseFloat(parentDiv.querySelector("span").innerText)
@@ -205,7 +211,8 @@ const showLoadHandleCard=()=>{
                         </div>`
    })
     const total = yourCart.reduce((sum, item) => sum + item.priceCopy, 0);
-  totalPriceId.innerHTML = `<h2 class="text-lg font-bold text-green-700">Total: $${total}</h2>`;
+  totalPriceId.innerHTML = `
+  <div class="border-t-2 border-green-900"><h2 class="text-md font-bold text-green-700 text-right">Total Price: $${total}</h2></div>`;
     
 }
 
@@ -213,31 +220,6 @@ const deleteCartItem = (index) => {
   yourCart.splice(index, 1);
   showLoadHandleCard();    
 }
-
-
-
-
-// const showModalDescription = (plant) => {
-//   const modalBox = document.getElementById("my_modal_8_content");
-  
-//   modalBox.innerHTML = `
-//     <h3 class="text-lg font-bold">${plant.name}</h3>
-//     <p class="py-4">${plant.description || "No description available"}</p>
-//     <div class="modal-action">
-//       <a href="#" class="btn">Close</a>
-//     </div>
-//   `;
-// };
-
-
-// loadCategoriesCart.addEventListener("click", (e) => {
-//   if (e.target.classList.contains("itemName")) {
-//     const id = e.target.getAttribute("data-id");
-//     modalDescription(id);
-   
-//     document.getElementById("my_modal_8").showModal?.(); 
-//   }
-// });;
 
 
 allCategoriesPart();
