@@ -113,7 +113,7 @@ const showLoadCategoriesItem=(itemsCat)=>{
                         <p class="text-left text-sm">${items.description}</p>
                         <div class="flex justify-between">
                             <button class="bg-[#DCFCE7] rounded-3xl px-2 py-1 text-green-700 font-semibold">${items.category}</button>
-                            <button>💲<span>${items.price}</span></button>
+                            <button class="font-semibold">৳<span>${items.price}</span></button>
                         </div>
                         <button class="bg-[#15803D] text-white px-15 py-2 rounded-3xl font-semibold addCart">Add to Cart</button>
                     </div>
@@ -190,20 +190,22 @@ const showDetailModal=(plants)=>{
   // console.log(plants)
     modalCard.showModal();
 modalContainer.innerHTML=`
-        <img class="w-90 h-70 mx-auto object-cover" src="${plants.image}" alt="">
-        <h3 class="text-lg font-bold">${plants.name}</h3>
-        <p class="py-4 text-gray-800">${plants.description || "No description available"}</p>
-        <p class="text-green-700"><span class=" text-gray-800 font-semibold">Category:</span> ${plants.category}</p>
-         <p class="text-green-700"><span class="text-gray-800 font-semibold">Price:</span>$ ${plants.price} </p>
+         <h3 class="text-lg font-bold">${plants.name}</h3>
+        <img class="w-full rounded-md h-60 mx-auto object-cover" src="${plants.image}" alt="">
+       
+       <p class="text-green-700"><span class=" text-gray-800 font-semibold">Category:</span> ${plants.category}</p>
+       <p class="text-green-700"><span class="text-gray-800 font-semibold">Price:</span>৳ ${plants.price} </p>
+          <p class="py-4 text-gray-800"> <span class="font-semibold">Description :</span> ${plants.description || "No description available"}</p>
 
 `
 }
 
 const loadHandleCard=(e)=>{
-  alert("successfully Add to Cart")
+  
   const parentDiv = e.target.closest("div.bg-white"); 
   const titleCopy = parentDiv.querySelector("h1").innerText;
   const priceCopy = parseFloat(parentDiv.querySelector("span").innerText)
+  alert( titleCopy +" has been add to Cart")
  
 
    yourCart.push({
@@ -219,17 +221,17 @@ const showLoadHandleCard=()=>{
    cardBox.innerHTML = "";
 
    yourCart.forEach((card,index)=>{
-        cardBox.innerHTML+=`  <div class="flex justify-between bg-[#F0FDF4] px-2 py-1 rounded-lg mx-1 mt-1">
-                            <div class="text-black">
-                                <h1 class="font-semibold text-lg">${card.titleCopy}</h1>
-                            <p class="text-left">${card.priceCopy}</p>
+        cardBox.innerHTML+=`  <div class="flex justify-between bg-[#F0FDF4] px-2 py-1 rounded-lg mx-2 mt-1">
+                            <div class="text-black space-y-2">
+                                <h1 class="font-semibold text-md">${card.titleCopy}</h1>
+                            <p class="text-left text-sm text-gray-700">৳${card.priceCopy} <i class="fa-solid fa-xmark"></i> 1</p>
                         </div>
-                            <button onclick="deleteCartItem(${index})"><i class="fa-solid fa-xmark"></i></button>
+                            <button onclick="deleteCartItem(${index})"><i class="fa-solid fa-xmark text-red-900"></i></button>
                         </div>`
    })
     const total = yourCart.reduce((sum, item) => sum + item.priceCopy, 0);
   totalPriceId.innerHTML = `
-  <div class="border-t-2 border-green-900"><h2 class="text-md font-bold text-green-700 text-right">Total Price: $${total}</h2></div>`;
+  <div class="border-t-2 border-green-900"><h2 class="text-md font-bold text-green-700 text-right">Total Price: ৳${total}</h2></div>`;
     
 }
 
