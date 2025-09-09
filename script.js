@@ -34,20 +34,19 @@ const showAllCategoriesName=(names)=>{
    names.forEach(name => {
    
     allCategoriesId.innerHTML+=`  
-    <div class="dropdown md:hidden">
-                    <div tabindex="0" class="m-1 text-center"><a class="text-sm hover:text-green-700" href="">${name.category_name}</a></div>
-                    <ul tabindex="0"
-                        class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-green-700 font-semibold">
-                       <div class=" hover:bg-green-600 rounded-md  hover:text-white cursor-pointer mt-2 font-semibold  gap-2 ">
+               <div class="dropdown md:hidden">
+                   <ul>
+                       <div class="tabindex="0" dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-green-700 font-semibold hover:bg-green-600 rounded-md  hover:text-white  mt-2 font-semibold  gap-2 ">
                           
-                          <li id=${name.id}  class="py-1 px-10 pl-2 ">${name.category_name}</li>
-                          </div>
+                          <li id=${name.id}  class="cursor-pointer py-1 px-10 pl-2 ">${name.category_name}</li>
+                       </div>
                     </ul>
                 </div>
-                          <div class="hidden md:block hover:bg-green-600 rounded-md  hover:text-white cursor-pointer mt-2 font-semibold  gap-2 ">
+                         
+                <div class="hidden md:block hover:bg-green-600 rounded-md  hover:text-white cursor-pointer mt-2 font-semibold  gap-2 ">
                           
                           <li id=${name.id}  class="py-1 px-10 pl-2 ">${name.category_name}</li>
-                          </div>
+                </div>
 
     `
    

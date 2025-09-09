@@ -7,9 +7,11 @@
     <title>Green Earth</title>
     <script src="https://kit.fontawesome.com/2ee332da59.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
@@ -42,7 +44,8 @@
     </nav>
 
     <!-- banner section -->
-    <header id="banner-id" class=" bg-[#CFF0DC] grid grid-cols-4 justify-between items-center gap-5 pt-10 mt-20 mx-auto">
+    <header id="banner-id"
+        class=" bg-[#CFF0DC] grid grid-cols-4 justify-between items-center gap-5 pt-10 mt-20 mx-auto">
         <img class="col-span-1" src="./assets/hero-leaf1.png" alt="">
         <div class="col-span-2 text-center space-y-2 text-[#1F2937] my-2">
             <h1 class="font-bold text-xl md:text-3xl">Plant a Tree, Grow a Future</h1>
@@ -58,27 +61,32 @@
         <!-- choose your tree section -->
         <section class="w-11/12 mx-auto my-10 text-center">
             <h1 class="text-2xl font-bold">Choose Your Trees</h1>
-           
+
             <div class="grid md:grid-cols-6 justify-between gap-5 mt-5">
-                <div id="allCategories-id" class="list-none md:col-span-1 text-left" >
-                    <div class="  w-full  flex justify-between md:grid"><h1 class="font-bold text-lg p-2">Categories</h1>
-                      <div class="flex justify-between">
-                        <ul ><li id="allCategory" class="font-bold p-2 hover:cursor-pointer  hover:bg-green-600 rounded-md  hover:text-white">All Categories</li></ul>
-                </div>
+                <div id="allCategories-id" class="list-none md:col-span-1 text-left">
+                    <div class="  w-full  flex justify-between md:grid">
+                        <h1 class="font-bold text-lg p-2">Categories</h1>
+                        <div class="flex justify-between">
+                            <ul>
+                                <li id="allCategory"
+                                    class="font-bold p-2 hover:cursor-pointer  hover:bg-green-600 rounded-md  hover:text-white">
+                                    All Categories</li>
+                            </ul>
+                        </div>
                     </div>
-                  
+
                 </div>
 
-                <div  class=" md:col-span-4">
-                    <div id="loadCategoriesItem"  >
-                      
+                <div class=" md:col-span-4">
+                    <div id="loadCategoriesItem">
+
                         <div id="loadCategoriesCart" class=" grid md:grid-cols-3 gap-2  min-h-[300px]"></div>
                         <!-- loading button  -->
-                          <!-- <span class="loading loading-dots loading-xl text-center"></span> -->
+                        <!-- <span class="loading loading-dots loading-xl text-center"></span> -->
 
-                       
-                 </div>
-                    
+
+                    </div>
+
 
                 </div>
                 <div class=" md:col-span-1 bg-white rounded-lg">
@@ -89,27 +97,27 @@
 
             </div>
         </section>
-    <section>
-        <!-- The button to open modal -->
+        <section>
+            <!-- The button to open modal -->
 
 
 
-<!-- Open the modal using ID.showModal() method -->
-<!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
-<dialog id="modal_card" class="modal">
-  <div class="modal-box">
-    <div id="modalContainer" class="space-y-2 object-cover">
-   
-    </div>
-    <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
-    </section>
+            <!-- Open the modal using ID.showModal() method -->
+            <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+            <dialog id="modal_card" class="modal">
+                <div class="modal-box">
+                    <div id="modalContainer" class="space-y-2 object-cover">
+
+                    </div>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+        </section>
 
         <!-- About the Campaign section -->
         <section class="w-8/12 mx-auto text-center items-center text-[#1F2937]">
@@ -120,10 +128,10 @@
                     <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since
                         our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore
                         forests, create habitats for wildlife, and combat global warming.</p>
-                    <ul class="text-left ml-10 md:ml-0" >
-                        <li><i class="fa-solid fa-circle text-sm"></i>  Restoration of natural habitats</li>
-                        <li><i class="fa-solid fa-circle text-sm"></i>  Improvement of air quality</li>
-                        <li><i class="fa-solid fa-circle text-sm"></i>  Support for local communities</li>
+                    <ul class="text-left ml-10 md:ml-0">
+                        <li><i class="fa-solid fa-circle text-sm"></i> Restoration of natural habitats</li>
+                        <li><i class="fa-solid fa-circle text-sm"></i> Improvement of air quality</li>
+                        <li><i class="fa-solid fa-circle text-sm"></i> Support for local communities</li>
 
                     </ul>
                 </div>
@@ -132,7 +140,7 @@
         </section>
 
         <!-- Our Impact section-->
-         <section class="bg-[#CFF0DC] mt-10 text-center py-20 mx-auto">
+        <section class="bg-[#CFF0DC] mt-10 text-center py-20 mx-auto">
             <h1 class="text-2xl font-bold pb-5">Our Impact</h1>
             <div class="w-11/12 mx-auto grid md:grid-cols-3 gap-5">
                 <div class="bg-white rounded-lg text-black py-5 px-10">
@@ -148,42 +156,43 @@
                     <p>Countries Reached</p>
                 </div>
             </div>
-         </section>
+        </section>
 
-         <!-- Plant a Tree Today section -->
-          <section class="text-center items-center bg-[#166534] mx-auto">
+        <!-- Plant a Tree Today section -->
+        <section class="text-center items-center bg-[#166534] mx-auto">
             <h1 class="text-2xl font-bold pb-10 pt-15 text-white">Plant a Tree Today</h1>
-           <div class="pb-15">
-             <form class="space-y-2 bg-green-700 md:w-4/12 mx-auto py-10 rounded-lg" >
-                
-                <div>
-                    <label class="input validator">
-  <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> </svg>
-  <input type="t" placeholder="Your Name" required />
-</label>
-<div class="validator-hint hidden">Enter valid email address</div>
-                </div>
-                <div>
-                    <label class="input validator">
-  <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-   
-  </svg>
-  <input type="email" placeholder="mail@site.com" required />
-</label>
-<div class="validator-hint hidden">Enter valid email address</div>
-                </div>
-                <div class="text-gray-500 text-sm">
-                    <select class="select">
-  <option disabled selected>Number of Trees</option>
-  <option>item-1</option>
-  <option>item-2</option>
-  <option>item-3</option>
-</select>
-                </div>
-                 <button class="bg-[#FACC15] text-[#15803D] px-30 py-2 rounded-3xl">  Plant a Tree</button>
-            </form>
-           </div>
-          </section>
+            <div class="pb-15">
+                <form class="space-y-2 bg-green-700 md:w-4/12 mx-auto py-10 rounded-lg">
+
+                    <div>
+                        <label class="input validator">
+                            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            </svg>
+                            <input type="t" placeholder="Your Name" required />
+                        </label>
+                        <div class="validator-hint hidden">Enter valid email address</div>
+                    </div>
+                    <div>
+                        <label class="input validator">
+                            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+
+                            </svg>
+                            <input type="email" placeholder="mail@site.com" required />
+                        </label>
+                        <div class="validator-hint hidden">Enter valid email address</div>
+                    </div>
+                    <div class="text-gray-500 text-sm">
+                        <select class="select">
+                            <option disabled selected>Number of Trees</option>
+                            <option>item-1</option>
+                            <option>item-2</option>
+                            <option>item-3</option>
+                        </select>
+                    </div>
+                    <button class="bg-[#FACC15] text-[#15803D] px-30 py-2 rounded-3xl"> Plant a Tree</button>
+                </form>
+            </div>
+        </section>
 
     </main>
     <footer>
